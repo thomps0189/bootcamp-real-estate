@@ -12,7 +12,7 @@ Request.init(
             allowNull: false
         },
         property: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'property',

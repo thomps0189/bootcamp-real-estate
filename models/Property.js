@@ -36,7 +36,7 @@ Property.init(
             allowNull: false
         },
         tenet_name: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
             references: {
                 model: 'tenet',

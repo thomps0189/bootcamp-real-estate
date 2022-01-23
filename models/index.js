@@ -2,35 +2,50 @@ const PropertyType = require("./PropertyType");
 const RequestType = require("./RequestType");
 const StatusType = require("./StatusType");
 const WorkOrderType = require("./WorkOrderType");
-
-const Address = require("./Address");
+const PropertyTenet = require("./PropertyTenet");
 const Property = require("./Property");
 const Request = require("./Request");
 const WorkOrder = require("./WorkOrder");
 const Person = require("./Person");
-const UserRole = require("./UserRole");
+const RoleType = require("./RoleType");
 const User = require("./User");
+const UserPerson = require("./UserPerson");
 
 // Tenents belong to a property, tenet has one property, property has many requests, request belongs to property, todo has many properties,
 
-// User.belongsTo(Person, {
-//   foreignKey: "user_id",
+User.belongsTo(Person, {
+  through: UserPerson,
+  as: "person",
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
+  //   constraints: false,
+});
+
+// Person.belongsTo(User, {
+//   through: UserPerson,
+//   as: "user",
+//   foreignKey: "person_id",
+//   onDelete: "SET NULL",
+//   //   constraints: false,
 // });
-// Person.hasOne(User, {
-//   foreignKey: "user_id",
+
+// Property.belongsToMany(Person, {
+//   through: PropertyTenet,
+//   as: "persons",
+//   foreignKey: "person_id",
+//   onDelete: "CASCADE",
 // });
 
 // Person.belongsTo(Property, {
-//   foreignKey: "person_id",
+//   through: PropertyTenet,
+//   as: "property",
+//   foreignKey: "property_id",
+//   onDelete: "CASCADE",
 // });
 
 PropertyType.hasMany(Property, {
   foreignKey: "property_type_id",
 });
-
-// Address.belongsTo(Property, {
-//   foreignKey: "address_id",
-// });
 
 Property.hasMany(Request, {
   foreignKey: "property_id",
@@ -44,9 +59,15 @@ StatusType.hasMany(Request, {
   foreignKey: "status_types_id",
 });
 
-UserRole.hasMany(User, {
-  foreignKey: "user_role_id",
+User.belongsTo(RoleType, {
+  foreignKey: "role_type_id",
+  onDelete: "SET NULL",
 });
+
+// RoleType.belongsTo(User, {
+//   foreignKey: "role_type_id",
+//   onDelete: "SET NULL",
+// });
 
 Property.hasMany(WorkOrder, {
   foreignKey: "property_id",
@@ -88,11 +109,10 @@ module.exports = {
   Request,
   Person,
   User,
-  Address,
   WorkOrder,
   WorkOrderType,
   PropertyType,
   StatusType,
   RequestType,
-  UserRole,
+  RoleType,
 };

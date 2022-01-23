@@ -38,10 +38,10 @@ User.init(
         len: [4],
       },
     },
-    user_role_id: {
+    role_type_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user_role",
+        model: "role_type",
         key: "id",
       },
     },

@@ -31,7 +31,7 @@ Request.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    status: {
+    status_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

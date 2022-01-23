@@ -10,13 +10,6 @@ Property.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    address_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "address",
-        key: "id",
-      },
-    },
     property_type_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -41,14 +34,35 @@ Property.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    person_id: {
-      type: DataTypes.INTEGER,
+    address_line1: {
+      type: DataTypes.STRING,
       allowNull: true,
-      field: "tenet_id",
-      references: {
-        model: "person",
-        key: "id",
+    },
+    address_line2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [2],
       },
+    },
+    zip_code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5],
+      },
+    },
+    county: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {

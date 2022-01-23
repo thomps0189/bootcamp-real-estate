@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
-class UserRole extends Model {}
-// id, UserRole, type(duplex, single,etc), bedrooms, bath, rent, sq ft
-UserRole.init(
+class RoleType extends Model {}
+// id, RoleType, type(duplex, single,etc), bedrooms, bath, rent, sq ft
+RoleType.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -24,8 +24,8 @@ UserRole.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "user_role",
+    modelName: "role_type",
   }
 );
 
-module.exports = UserRole;
+module.exports = RoleType;

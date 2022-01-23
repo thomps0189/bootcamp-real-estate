@@ -2,7 +2,7 @@ const { RoleType } = require("../models");
 
 const roleTypeData = [
   {
-    category: "tenet",
+    category: "tenant",
     description: "Person or persons living in one of the properties..",
   },
   {

@@ -3,7 +3,7 @@ const { RequestType } = require("../models");
 const requestTypeData = [
   {
     category: "service request",
-    description: "A request from a tenet for a particular property problem.",
+    description: "A request from a tenant for a particular property problem.",
   },
   {
     category: "maintenance",

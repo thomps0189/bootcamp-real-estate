@@ -1,16 +1,15 @@
 const seedProperties = require("./property-seeds");
 const seedPerson = require("./person-seeds");
-//const seedUser = require("./")
+const seedUser = require("./user-seeds");
 const seedRoleTypes = require("./role-type-seeds");
-const seedToDo = require("./to-do-seeds");
 const seedRequests = require("./request-seeds");
-const requestTypeSeeds = require("./request-type-seeds");
 const seedStatusTypes = require("./status-type-seeds");
 const sequelize = require("../config/connection");
 const seedPropertyTypes = require("./property-type-seeds");
 const seedrequestTypes = require("./request-type-seeds");
-//const { combineTableNames } = require("sequelize/dist/lib/utils");
-const seedstatusTypes = require("./status-type-seeds");
+const seedWorkOrderTypes = require("./work-order-type-seeds");
+const seedUserPerson = require("./user-person-seeds");
+const seedPropertyTenant = require("./property-tenant-seeds");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -28,6 +27,9 @@ const seedAll = async () => {
   await seedRoleTypes();
   console.log("\n----- ROLE TYPES SEEDED -----\n");
 
+  await seedWorkOrderTypes();
+  console.log("\n----- WORK ORDER TYPES SEEDED -----\n");
+
   await seedProperties();
   console.log("\n----- PROPERTIES SEEDED -----\n");
 
@@ -37,17 +39,14 @@ const seedAll = async () => {
   await seedPerson();
   console.log("\n----- PERSON SEEDED -----\n");
 
-  // await seedUser();
-  // console.log("\n----- USER SEEDED -----\n");
+  await seedUser();
+  console.log("\n----- USER SEEDED -----\n");
 
-  // await seedTenet();
-  // console.log('\n----- TENET SEEDED -----\n');
+  await seedPropertyTenant();
+  console.log("\n----- PROPERTY TENET SEEDED -----\n");
 
-  // await seedRequests();
-  // console.log('\n----- REQUEST SEEDED -----\n');
-
-  // await seedToDo();
-  // console.log('\n----- TO-DO SEEDED -----\n');
+  await seedUserPerson();
+  console.log("\n----- USER PERSON SEEDED -----\n");
 
   process.exit(0);
 };

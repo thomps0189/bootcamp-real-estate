@@ -5,7 +5,7 @@ const sequelize = require("../config/connection");
 class Person extends Model {}
 // name, contact info - phone and email, property,
 //Person Model created to hold generic person information site wide
-//such as Owner, Maintenance, Tenet, ect.
+//such as Owner, Maintenance, Tenant, ect.
 Person.init(
   {
     id: {

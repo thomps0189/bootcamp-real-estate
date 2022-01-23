@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class PropertyTenet extends Model {}
+class PropertyTenant extends Model {}
 
-PropertyTenet.init(
+PropertyTenant.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -32,8 +32,8 @@ PropertyTenet.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "property_tenet",
+    modelName: "property_tenant",
   }
 );
 
-module.exports = PropertyTenet;
+module.exports = PropertyTenant;

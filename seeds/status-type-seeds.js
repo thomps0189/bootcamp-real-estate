@@ -3,7 +3,7 @@ const { StatusType } = require("../models");
 const StatusTypeData = [
   {
     category: "reported",
-    description: "A tenet request has been reported to the system.",
+    description: "A tenant request has been reported to the system.",
   },
   {
     category: "in progress",

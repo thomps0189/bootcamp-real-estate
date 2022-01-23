@@ -37,6 +37,18 @@ const personData = [
     phone: "615-555-6666",
     email: "robertdeniro@email.com",
   },
+  {
+    first_name: "Bill",
+    last_name: "Murray",
+    phone: "615-555-7777",
+    email: "ghost-buster-V@theman.com",
+  },
+  {
+    first_name: "GroundsKeeper",
+    last_name: "Willy",
+    phone: "615-555-8888",
+    email: "WillyKeepsitReal@scotty.com",
+  },
 ];
 
 const seedPerson = () => Person.bulkCreate(personData);

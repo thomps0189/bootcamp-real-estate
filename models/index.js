@@ -2,18 +2,17 @@ const PropertyType = require("./PropertyType");
 const RequestType = require("./RequestType");
 const StatusType = require("./StatusType");
 const WorkOrderType = require("./WorkOrderType");
-const PropertyTenet = require("./PropertyTenet");
+const PropertyTenant = require("./PropertyTenant");
 const Property = require("./Property");
 const Request = require("./Request");
-const WorkOrder = require("./WorkOrder");
 const Person = require("./Person");
 const RoleType = require("./RoleType");
 const User = require("./User");
 const UserPerson = require("./UserPerson");
 
-// Tenents belong to a property, tenet has one property, property has many requests, request belongs to property, todo has many properties,
+// Tenents belong to a property, tenant has one property, property has many requests, request belongs to property, todo has many properties,
 
-User.belongsTo(Person, {
+User.belongsToMany(Person, {
   through: UserPerson,
   as: "person",
   foreignKey: "user_id",
@@ -21,27 +20,27 @@ User.belongsTo(Person, {
   //   constraints: false,
 });
 
-// Person.belongsTo(User, {
-//   through: UserPerson,
-//   as: "user",
-//   foreignKey: "person_id",
-//   onDelete: "SET NULL",
-//   //   constraints: false,
-// });
+Person.belongsToMany(User, {
+  through: UserPerson,
+  as: "user",
+  foreignKey: "person_id",
+  onDelete: "SET NULL",
+  //   constraints: false,
+});
 
-// Property.belongsToMany(Person, {
-//   through: PropertyTenet,
-//   as: "persons",
-//   foreignKey: "person_id",
-//   onDelete: "CASCADE",
-// });
+Property.belongsToMany(Person, {
+  through: PropertyTenant,
+  as: "persons",
+  foreignKey: "property_id",
+  onDelete: "CASCADE",
+});
 
-// Person.belongsTo(Property, {
-//   through: PropertyTenet,
-//   as: "property",
-//   foreignKey: "property_id",
-//   onDelete: "CASCADE",
-// });
+Person.belongsToMany(Property, {
+  through: PropertyTenant,
+  as: "property",
+  foreignKey: "person_id",
+  onDelete: "CASCADE",
+});
 
 PropertyType.hasMany(Property, {
   foreignKey: "property_type_id",
@@ -56,7 +55,11 @@ RequestType.hasMany(Request, {
 });
 
 StatusType.hasMany(Request, {
-  foreignKey: "status_types_id",
+  foreignKey: "status_type_id",
+});
+
+WorkOrderType.hasMany(Request, {
+  foreignKey: "work_order_type_id",
 });
 
 User.belongsTo(RoleType, {
@@ -69,26 +72,26 @@ User.belongsTo(RoleType, {
 //   onDelete: "SET NULL",
 // });
 
-Property.hasMany(WorkOrder, {
-  foreignKey: "property_id",
-});
-
-WorkOrderType.hasMany(WorkOrder, {
-  foreignKey: "work_order_type_id",
-});
-
-Request.hasMany(WorkOrder, {
-  foreignKey: "request_id",
-});
-
-StatusType.hasMany(WorkOrder, {
-  foreignKey: "status_type_id",
-});
-// Property.belongsTo(Tenet, {
-//   foreignKey: "tenet_property",
+// Property.hasMany(WorkOrder, {
+//   foreignKey: "property_id",
 // });
 
-// Tenet.belongsTo(Property, {
+// WorkOrderType.hasMany(WorkOrder, {
+//   foreignKey: "work_order_type_id",
+// });
+
+// Request.hasMany(WorkOrder, {
+//   foreignKey: "request_id",
+// });
+
+// StatusType.hasMany(WorkOrder, {
+//   foreignKey: "status_type_id",
+// });
+// Property.belongsTo(Tenant, {
+//   foreignKey: "tenant_property",
+// });
+
+// Tenant.belongsTo(Property, {
 //   foreignKey: "id",
 // });
 
@@ -109,10 +112,11 @@ module.exports = {
   Request,
   Person,
   User,
-  WorkOrder,
   WorkOrderType,
   PropertyType,
   StatusType,
   RequestType,
   RoleType,
+  PropertyTenant,
+  UserPerson,
 };

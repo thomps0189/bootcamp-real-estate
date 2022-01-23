@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Request extends Model {}
-// property, type, tenet name, message
+// property, type, tenant name, message
 Request.init(
   {
     id: {
@@ -31,11 +31,19 @@ Request.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    status_id: {
+    status_type_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "status_type",
+        key: "id",
+      },
+    },
+    work_order_type_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "work_order_type",
         key: "id",
       },
     },

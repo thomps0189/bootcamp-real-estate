@@ -1,15 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
+
 const sequelize = require("../config/connection");
 
-class Request extends Model {}
-// property, type, tenet name, message
-Request.init(
+class WorkOrder extends Model {}
+// property, type, text, tenet name, tenet phone
+WorkOrder.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
     },
     property_id: {
       type: DataTypes.INTEGER,
@@ -19,19 +19,27 @@ Request.init(
         key: "id",
       },
     },
-    request_type_id: {
+    work_order_type_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "request_type",
+        model: "work_order_type",
         key: "id",
       },
     },
-    request_message: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    status: {
+    request_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: "request",
+        key: "id",
+      },
+    },
+    status_type_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -45,10 +53,8 @@ Request.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "request",
+    modelName: "work_order",
   }
 );
 
-module.exports = Request;
-
-//FIND OUT ABOUT MULTIPLE KEYS
+module.exports = WorkOrder;

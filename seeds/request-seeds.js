@@ -1,27 +1,27 @@
-const { Request } = require('../models');
+const { Request } = require("../models");
 
 const requestData = [
-    {
-        property: '1',
-        request_type: 'maintenance',
-        tenet_name: 'Jack Nicholson',
-        tenet_phone: '615-555-1111',
-        request_message: 'please change air filters in the ac vents'
-    },
-    {
-        property: '5',
-        request_type: 'service request',
-        tenet_name: 'Audrey Hepburn',
-        tenet_phone: '615-555-5555',
-        request_message: 'my dryer stopped working'
-    },
-    {
-        property: '6',
-        request_type: 'service request',
-        tenet_name: 'Robert De Niro',
-        tenet_phone: '615-555-6666',
-        request_message: 'the sink is clogged'
-    }
+  {
+    property_id: "1",
+    request_type_id: 1, //'maintenance',
+    request_message: "please change air filters in the ac vents",
+    status_type_id: 2,
+    work_order_type_id: 1,
+  },
+  {
+    property_id: "5",
+    request_type_id: 2, //"service request",
+    request_message: "my dryer stopped working",
+    status_type_id: 1,
+    work_order_type_id: 1,
+  },
+  {
+    property_id: "6",
+    request_type_id: 2, //"service request",
+    request_message: "the sink is clogged",
+    status_type_id: 3,
+    work_order_type_id: 2,
+  },
 ];
 
 const seedRequests = () => Request.bulkCreate(requestData);

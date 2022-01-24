@@ -16,16 +16,14 @@ User.belongsToMany(Person, {
   through: UserPerson,
   as: "person",
   foreignKey: "user_id",
-  onDelete: "SET NULL",
-  //   constraints: false,
+  onDelete: "CASCADE",
 });
 
 Person.belongsToMany(User, {
   through: UserPerson,
   as: "user",
   foreignKey: "person_id",
-  onDelete: "SET NULL",
-  //   constraints: false,
+  onDelete: "CASCADE",
 });
 
 Property.belongsToMany(Person, {
@@ -44,6 +42,7 @@ Person.belongsToMany(Property, {
 
 PropertyType.hasMany(Property, {
   foreignKey: "property_type_id",
+  onDelete: "SET NULL",
 });
 
 Property.hasMany(Request, {
@@ -52,14 +51,17 @@ Property.hasMany(Request, {
 
 RequestType.hasMany(Request, {
   foreignKey: "request_type_id",
+  onDelete: "SET NULL",
 });
 
 StatusType.hasMany(Request, {
   foreignKey: "status_type_id",
+  onDelete: "SET NULL",
 });
 
 WorkOrderType.hasMany(Request, {
   foreignKey: "work_order_type_id",
+  onDelete: "SET NULL",
 });
 
 User.belongsTo(RoleType, {

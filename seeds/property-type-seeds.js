@@ -1,6 +1,10 @@
 const { PropertyType } = require("../models");
 
 const propertyTypeData = [
+  // {
+  //   category: "unset",
+  //   description: "default value when not properly set.",
+  // },
   {
     category: "duplex",
     description:

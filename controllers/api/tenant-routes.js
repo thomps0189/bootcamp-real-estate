@@ -6,31 +6,37 @@ const {
   UserRole,
   PropertyType,
   Property,
-  PropertyTenant,
+  PropertyTenant
 } = require("../../models");
-const { create } = require("../../models/PropertyType");
+const {
+  create
+} = require("../../models/PropertyType");
 
 //Get Routes
 
 router.get("/", (req, res) => {
   PropertyTenant.findAll({
-    include: {
-      model: PropertyTenant,
-      attributes: ["id", "property_id", "person_id"],
-    },
-  });
+      attributes: ["id", "property_id", "person_id"]
+
+    }).then((dbPropertytenantData) => res.json(dbPropertytenantData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 });
 
 router.get("/:id", (req, res) => {
   PropertyTenant.findOne({
-    include: {
-      model: PropertyTenant,
-      attributes: ["id", "property_id", "person_id"],
-    },
-  })
+      include: {
+        model: PropertyTenant,
+        attributes: ["id", "property_id", "person_id"],
+      },
+    })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData) {
-        res.status(404).json({ message: "no tenant found with this id" });
+        res.status(404).json({
+          message: "no tenant found with this id"
+        });
         return;
       }
       res.json(dbPropertytenantData);
@@ -44,10 +50,11 @@ router.get("/:id", (req, res) => {
 //Post Routes
 
 router.post("/", (req, res) => {
+
   PropertyTenant.create({
-    property_id: req.body.property_id,
-    person_id: req.body.person_id,
-  })
+      property_id: req.body.property_id,
+      person_id: req.body.person_id,
+    })
     .then((dbPropertytenantData) => res.json(dbPropertytenantData))
     .catch((err) => {
       console.log(err);
@@ -59,10 +66,10 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
   PropertyTenant.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
+      where: {
+        id: req.params.id,
+      },
+    })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData[0]) {
         res.status(404).json({
@@ -82,13 +89,15 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
   PropertyTenant.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
+      where: {
+        id: req.params.id,
+      },
+    })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData) {
-        res.status(404).json({ message: "no tenant found with this id" });
+        res.status(404).json({
+          message: "no tenant found with this id"
+        });
         return;
       }
       res.json(dbPropertytenantData);

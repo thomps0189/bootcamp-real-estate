@@ -14,7 +14,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  console.log(`\n----------\n\n ${req.params.id}\n\n`);
   PropertyType.findOne({
     where: {
       id: req.params.id,

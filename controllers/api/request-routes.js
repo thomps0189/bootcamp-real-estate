@@ -14,7 +14,7 @@ const {
 router.get("/", (req, res) => {
   Request.findAll({
     attributes: ["id", "request_message"],
-   include: [{ all: true, nested: true }],
+   include: [{ all: true, nested: false }],
   //   include: [
   //     {
   //       model: Property,
@@ -95,7 +95,7 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     attributes: ["id", "request_message"],
-    include: [{ all: true, nested: true }],
+    include: [{ all: true, nested: false }],
     // include: [
     //   {
     //     model: Property,

@@ -14,48 +14,50 @@ const {
 router.get("/", (req, res) => {
   Request.findAll({
     attributes: ["id", "request_message"],
-    include: [
-      {
-        model: Property,
-        attributes: [
-          "id",
-          "bedrooms",
-          "bathrooms",
-          "rent",
-          "sq_ft",
-          "address_line1",
-          "address_line2",
-          "city",
-          "state",
-          "zip_code",
-          "county",
-        ],
-        include: [
-          {
-            model: PropertyType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: RequestType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: StatusType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: WorkOrderType,
-            attributes: ["id", "category", "description"],
-          },
-        ],
-      },
-    ],
-  })
+   include: [{ all: true, nested: false }],
+  //   include: [
+  //     {
+  //       model: Property,
+  //       attributes: [
+  //         "id",
+  //         "bedrooms",
+  //         "bathrooms",
+  //         "rent",
+  //         "sq_ft",
+  //         "address_line1",
+  //         "address_line2",
+  //         "city",
+  //         "state",
+  //         "zip_code",
+  //         "county",
+  //       ],
+  //       include: [
+  //         {
+  //           model: PropertyType,
+  //           attributes: ["id", "category", "description"],
+  //         },
+  //         {
+  //           model: RequestType,
+  //           attributes: ["id", "category", "description"],
+  //         },
+  //         {
+  //           model: StatusType,
+  //           attributes: ["id", "category", "description"],
+  //         },
+  //         {
+  //           model: WorkOrderType,
+  //           attributes: ["id", "category", "description"],
+  //         },
+  //       ],
+  //     }
+  //   ],
+  }
+ )
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    });
+   });
 });
 
 // router.get("/:id", (req, res) => {
@@ -93,42 +95,43 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     attributes: ["id", "request_message"],
-    include: [
-      {
-        model: Property,
-        attributes: [
-          "id",
-          "bedrooms",
-          "bathrooms",
-          "rent",
-          "sq_ft",
-          "address_line1",
-          "address_line2",
-          "city",
-          "state",
-          "zip_code",
-          "county",
-        ],
-        include: [
-          {
-            model: PropertyType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: RequestType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: StatusType,
-            attributes: ["id", "category", "description"],
-          },
-          {
-            model: WorkOrderType,
-            attributes: ["id", "category", "description"],
-          },
-        ],
-      },
-    ],
+    include: [{ all: true, nested: false }],
+    // include: [
+    //   {
+    //     model: Property,
+    //     attributes: [
+    //       "id",
+    //       "bedrooms",
+    //       "bathrooms",
+    //       "rent",
+    //       "sq_ft",
+    //       "address_line1",
+    //       "address_line2",
+    //       "city",
+    //       "state",
+    //       "zip_code",
+    //       "county",
+    //     ],
+    //      include: [
+    //       {
+    //         model: PropertyType,
+    //         attributes: ["id", "category", "description"],
+    //       },
+    //       {
+    //         model: RequestType,
+    //         attributes: ["id", "category", "description"],
+    //       },
+    //       {
+    //         model: StatusType,
+    //         attributes: ["id", "category", "description"],
+    //       },
+    //       {
+    //         model: WorkOrderType,
+    //         attributes: ["id", "category", "description"],
+    //       },
+    //    ],
+    //   },
+    // ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {

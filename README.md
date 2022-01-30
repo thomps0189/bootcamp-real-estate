@@ -18,7 +18,7 @@ This is a website to be used by both a real estate manager/owner and the tenets 
 
 # Installation
 
-bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, handlebars, mysql2, and sequelize
+bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, handlebars, mysql2, and sequelize, popper.js
 
 # Usage
 

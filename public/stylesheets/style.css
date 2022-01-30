@@ -1,12 +1,11 @@
-.banner {
-  height: 650px;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  width: 100%;
-  color: #fff;
-  z-index: -9999;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 0%), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTueCvJF66XyeF5bqwg256qjOWnCZBfNLyLw&usqp=CAU") no-repeat center;
-  background-size: cover;
+#banner {
+    height: 450px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+    z-index: -9999;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 0%), url("https://video.cgtn.com/news/7955444e77677a6333566d54/video/48c93e98-5be9-422c-97d2-f4d8231e9d15/48c93e98-5be9-422c-97d2-f4d8231e9d15.jpg") no-repeat center;
+    background-size: cover;
 }

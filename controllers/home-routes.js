@@ -2,7 +2,9 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const Property = require('../models');
 
-router.get('/', (req, res) => {
+
+router.get("/", (req, res) => {
+
     Property.findAll({
         attributes: [
             'bedrooms',
@@ -13,8 +15,15 @@ router.get('/', (req, res) => {
             'address_line2',
             'city',
             'state',
-            'zip_code',
+            'zipcode',
             'county',
         ]
+        
     })
-})
+    .then((dbPropertyData) => res.json(dbPropertyData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+

@@ -1,3 +1,12 @@
+<nav>
+    {{#if loggedIn}}
+    <a href="/dashboard">dashboard</a>
+    <button id="logout" class="btn-no-style">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
+</nav>
+
 <form class="login-form">
     <div>
         <label for="email-login">email:</label>

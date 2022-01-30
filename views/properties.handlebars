@@ -1,3 +1,12 @@
+<nav>
+    {{#if loggedIn}}
+    <a href="/dashboard">dashboard</a>
+    <button id="logout" class="btn-no-style">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
+</nav>
+
 <div class="container">
     <div>
         <h2>{{property.name}}</h2>
@@ -8,7 +17,8 @@
     <div>
         <h2>Details</h2>
         <ul>
-            <li><b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br></li>
+            <li><b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
+            </li>
             <li><b>Rent:</b>{{property.rent}}</li>
             <li><b>Bedrooms:</b>{{property.bedrooms}}</li>
             <li><b>Bathrooms:</b>{{property.bathrooms}}</li>

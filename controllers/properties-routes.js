@@ -5,7 +5,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Property } = require('../models');
 
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
     Property.findOne({
         where: {
             id: req.params.id,
@@ -37,4 +37,4 @@ router.get("/", (req, res) => {
   });
 });
 
-modules.exports = router;
+modules.exports = Property;

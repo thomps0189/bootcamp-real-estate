@@ -13,125 +13,23 @@ const {
 
 router.get("/", (req, res) => {
   Request.findAll({
-    attributes: ["id", "request_message"],
-   include: [{ all: true, nested: false }],
-  //   include: [
-  //     {
-  //       model: Property,
-  //       attributes: [
-  //         "id",
-  //         "bedrooms",
-  //         "bathrooms",
-  //         "rent",
-  //         "sq_ft",
-  //         "address_line1",
-  //         "address_line2",
-  //         "city",
-  //         "state",
-  //         "zip_code",
-  //         "county",
-  //       ],
-  //       include: [
-  //         {
-  //           model: PropertyType,
-  //           attributes: ["id", "category", "description"],
-  //         },
-  //         {
-  //           model: RequestType,
-  //           attributes: ["id", "category", "description"],
-  //         },
-  //         {
-  //           model: StatusType,
-  //           attributes: ["id", "category", "description"],
-  //         },
-  //         {
-  //           model: WorkOrderType,
-  //           attributes: ["id", "category", "description"],
-  //         },
-  //       ],
-  //     }
-  //   ],
-  }
- )
+    attributes: ["id", "request_message", "created_at", "updated_at"],
+    include: [{ all: true, nested: false }],
+  })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-   });
+    });
 });
-
-// router.get("/:id", (req, res) => {
-//   Request.findOne({
-//     where: {
-//       id: req.params.id,
-//     },
-//     include: [
-//       {
-//         model: Property,
-//         attributes: [
-//           "address_line1",
-//           "address_line2",
-//           "city",
-//           "state",
-//           "zipcode",
-//         ],
-//       },
-//       {
-//         model: PropertyTenant,
-//         attributes: ["person_id"],
-//       },
-//     ],
-//   })
-//     .then((dbRequestData) => res.json(dbRequestData))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 router.get("/:id", (req, res) => {
   Request.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "request_message"],
+    attributes: ["id", "request_message", "created_at", "updated_at"],
     include: [{ all: true, nested: false }],
-    // include: [
-    //   {
-    //     model: Property,
-    //     attributes: [
-    //       "id",
-    //       "bedrooms",
-    //       "bathrooms",
-    //       "rent",
-    //       "sq_ft",
-    //       "address_line1",
-    //       "address_line2",
-    //       "city",
-    //       "state",
-    //       "zip_code",
-    //       "county",
-    //     ],
-    //      include: [
-    //       {
-    //         model: PropertyType,
-    //         attributes: ["id", "category", "description"],
-    //       },
-    //       {
-    //         model: RequestType,
-    //         attributes: ["id", "category", "description"],
-    //       },
-    //       {
-    //         model: StatusType,
-    //         attributes: ["id", "category", "description"],
-    //       },
-    //       {
-    //         model: WorkOrderType,
-    //         attributes: ["id", "category", "description"],
-    //       },
-    //    ],
-    //   },
-    // ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -142,7 +40,6 @@ router.get("/:id", (req, res) => {
 //Post routes
 router.post("/", (req, res) => {
   Request.create({
-    request_id: req.body.request_id,
     property_id: req.body.property_id,
     request_type_id: req.body.request_type_id,
     request_message: req.body.request_message,

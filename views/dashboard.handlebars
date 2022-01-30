@@ -1,9 +1,16 @@
-<div class="card" style="width: 18rem;">
-    <a href="/requests"><p>Create Maitenance Request</p></a>
-</div>
+<nav>
+    {{#if loggedIn}}
+    <a href="/dashboard">dashboard</a>
+    <button id="logout" class="btn-no-style">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
+</nav>
 
 <div class="card" style="width: 18rem;">
-    <a href="/requests"><p>Create Maitenance Request</p></a>
+    <a href="/requests">
+        <p>Create Maitenance Request</p>
+    </a>
 </div>
 
 <div class="card" style="width: 18rem;">
@@ -15,7 +22,9 @@
         <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
         <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
         <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
-        <p class="card-text"><b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br></p>
+        <p class="card-text">
+            <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
+        </p>
         <p class="card-title"><b>City:</b>{{property.city}}</p>
         <p class="card-title"><b>State:</b>{{property.state}}</p>
         <p class="card-title"><b>County:</b>{{property.county}}</p>
@@ -25,3 +34,5 @@
     </div>
     {{/each}}
 </div>
+
+<script src="/public/javascript/logout.js"></script>

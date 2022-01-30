@@ -1,0 +1,27 @@
+<div class="banner d-flex align-items-center">
+    <div class="container">
+        <div style="padding: 40px; " class="col-md-12">
+            <h1>Bootcamp Real Estate</h1>
+        </div>
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+    {{#each property}}
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h1 class="card-title">{{property.name}}</h1>
+        <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
+        <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
+        <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
+        <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
+        <p class="card-text"><b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br></p>
+        <p class="card-title"><b>City:</b>{{property.city}}</p>
+        <p class="card-title"><b>State:</b>{{property.state}}</p>
+        <p class="card-title"><b>County:</b>{{property.county}}</p>
+    </div>
+    <div>
+        <button type="submit" class="btn">view property</button>
+    </div>
+    {{/each}}
+</div>

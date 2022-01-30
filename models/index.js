@@ -77,10 +77,13 @@ User.belongsTo(RoleType, {
 //   foreignKey: 'property_id'
 // });
 
-// Person.hasMany(Property, {
-//   foreignKey: 'id'
-// });
-////////////////////////////////////////
+
+Request.belongsTo(Property, {
+  foreignKey: "property_id",
+});
+
+
+
 // RoleType.belongsTo(User, {
 //   foreignKey: "role_type_id",
 //   onDelete: "SET NULL",
@@ -110,12 +113,8 @@ User.belongsTo(RoleType, {
 // });
 
 // Property.hasMany(Request, {
-//   foreignKey: "id",
-// });
-
-// Request.belongsTo(Property, {
-//   foreignKey: "address",
-// });
+//    foreignKey: "id",
+//  });
 
 // ToDo.hasMany(Property, {
 //   foreignKey: "address",

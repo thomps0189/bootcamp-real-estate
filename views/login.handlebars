@@ -1,11 +1,4 @@
-<nav>
-    {{#if loggedIn}}
-    <a href="/dashboard">dashboard</a>
-    <button id="logout" class="btn-no-style">logout</button>
-    {{else}}
-    <a href="/login">login</a>
-    {{/if}}
-</nav>
+
 
 <form class="login-form">
     <div>
@@ -23,20 +16,30 @@
 
 <form class="signup-form">
     <div>
-        <label for="username-signup">username:</label>
-        <input type="text" id="username-signup" />
+        <label for="username-signup">First Name:</label>
+        <input type="text" id="firstname-signup" />
     </div>
     <div>
-        <label for="email-signup">email:</label>
+        <label for="username-signup">Last Name:</label>
+        <input type="text" id="lastname-signup" />
+    </div>
+        <div>
+        <label for="phone-signup">Phone:</label>
+        <input type="text" id="phone-signup" />
+    </div>
+    <div>
+        <label for="email-signup">Email:</label>
         <input type="text" id="email-signup" />
     </div>
     <div>
-        <label for="password-signup">password:</label>
+        <label for="password-signup">Password:</label>
         <input type="password" id="password-signup" />
     </div>
     <div>
-        <button type="submit">signup</button>
+        <button type="submit">Sign Up</button>
     </div>
 </form>
 
-<script src="/public/javascript/login.js"></script>
+
+<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>

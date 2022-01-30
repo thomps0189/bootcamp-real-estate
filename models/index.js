@@ -50,7 +50,7 @@ Property.hasMany(Request, {
 });
 
 Property.hasOne(PropertyTenant, {
-  foreignKey: 'property_id'
+  foreignKey: "property_id",
 });
 
 RequestType.hasMany(Request, {
@@ -73,20 +73,14 @@ User.belongsTo(RoleType, {
   onDelete: "SET NULL",
 });
 //NEW AFTER THIS LINE
-PropertyTenant.belongsTo(Property, {
-  foreignKey: 'property_id'
-});
+// PropertyTenant.belongsTo(Property, {
+//   foreignKey: 'property_id'
+// });
 
-
-Person.hasMany(Property, {
-  foreignKey: 'id'
-});
-
-
-
-
-
-
+// Person.hasMany(Property, {
+//   foreignKey: 'id'
+// });
+////////////////////////////////////////
 // RoleType.belongsTo(User, {
 //   foreignKey: "role_type_id",
 //   onDelete: "SET NULL",

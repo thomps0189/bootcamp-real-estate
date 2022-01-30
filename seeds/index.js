@@ -30,23 +30,23 @@ const seedAll = async () => {
   await seedWorkOrderTypes();
   console.log("\n----- WORK ORDER TYPES SEEDED -----\n");
 
-  await seedProperties();
-  console.log("\n----- PROPERTIES SEEDED -----\n");
-
-  await seedRequests();
-  console.log("\n----- REQUEST SEEDED -----\n");
-
   await seedPerson();
   console.log("\n----- PERSON SEEDED -----\n");
 
   await seedUser();
   console.log("\n----- USER SEEDED -----\n");
 
+  await seedUserPerson();
+  console.log("\n----- USER PERSON SEEDED -----\n");
+
+  await seedProperties();
+  console.log("\n----- PROPERTIES SEEDED -----\n");
+
   await seedPropertyTenant();
   console.log("\n----- PROPERTY TENET SEEDED -----\n");
 
-  await seedUserPerson();
-  console.log("\n----- USER PERSON SEEDED -----\n");
+  await seedRequests();
+  console.log("\n----- REQUEST SEEDED -----\n");
 
   process.exit(0);
 };

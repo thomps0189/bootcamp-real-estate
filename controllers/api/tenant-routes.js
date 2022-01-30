@@ -6,36 +6,53 @@ const {
   UserRole,
   PropertyType,
   Property,
-  PropertyTenant
+  PropertyTenant,
+  UserPerson,
 } = require("../../models");
-const {
-  create
-} = require("../../models/PropertyType");
+const { create } = require("../../models/PropertyType");
 
 //Get Routes
 
 router.get("/", (req, res) => {
-  PropertyTenant.findAll({
-      attributes: ["id", "property_id", "person_id"]
-
-    }).then((dbPropertytenantData) => res.json(dbPropertytenantData))
+  Person.findAll({
+    attributes: ["id", "first_name", "last_name", "phone", "email"],
+    include: [
+      { all: true, nested: false },
+      {
+        model: User,
+        through: UserPerson,
+        where: { role_type_id: 1 },
+        as: "user",
+      },
+    ],
+  })
+    .then((dbPropertytenantData) => res.json(dbPropertytenantData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 router.get("/:id", (req, res) => {
-  PropertyTenant.findOne({
-      include: {
-        model: PropertyTenant,
-        attributes: ["id", "property_id", "person_id"],
+  Person.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "first_name", "last_name", "phone", "email"],
+    include: [
+      { all: true, nested: false },
+      {
+        model: User,
+        through: UserPerson,
+        where: { role_type_id: 1 },
+        as: "user",
       },
-    })
+    ],
+  })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData) {
         res.status(404).json({
-          message: "no tenant found with this id"
+          message: "no tenant found with this id",
         });
         return;
       }
@@ -49,27 +66,59 @@ router.get("/:id", (req, res) => {
 
 //Post Routes
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
+  const email = req.body.email;
+  const username = req.body.username;
+  console.log(`username is  ----->>  ${username}`);
+  console.log(`email is  ------>>  ${email}`);
+  // create a new person
+  const person = await Person.create({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    phone: req.body.phone,
+    email: req.body.email,
+    property: req.body.property_id, // can leave as null/empty list,
+  }).catch((err) => {
+    console.log(err);
+    res.json(500).json(err);
+  });
+  console.log("person created");
 
-  PropertyTenant.create({
-      property_id: req.body.property_id,
-      person_id: req.body.person_id,
-    })
+  // create a new user
+  const newuser = await User.create({
+    username: req.body.username,
+    password: "1234",
+    role_type_id: 1,
+    email: req.body.email,
+  }).catch((err) => {
+    console.log(err);
+    res.json(500).json(err);
+  });
+  console.log("user created");
+
+  //associate the person with the user
+  await person.addUser(newuser);
+  console.log("user_person association created");
+
+  // get the response object
+  const result = await Person.findOne({
+    where: { email: req.body.email },
+  })
     .then((dbPropertytenantData) => res.json(dbPropertytenantData))
     .catch((err) => {
       console.log(err);
-      res.json(500).json(err);
+      res.status(500).json(err);
     });
 });
 
 //Update Routes
 
 router.put("/:id", (req, res) => {
-  PropertyTenant.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    })
+  Person.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData[0]) {
         res.status(404).json({
@@ -88,15 +137,15 @@ router.put("/:id", (req, res) => {
 //Delete Routes
 
 router.delete("/:id", (req, res) => {
-  PropertyTenant.destroy({
-      where: {
-        id: req.params.id,
-      },
-    })
+  Person.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
     .then((dbPropertytenantData) => {
       if (!dbPropertytenantData) {
         res.status(404).json({
-          message: "no tenant found with this id"
+          message: "no tenant found with this id",
         });
         return;
       }

@@ -1,3 +1,5 @@
+// Getting All Properties for homepage
+
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const Property = require('../models');
@@ -26,4 +28,7 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+modules.exports = router;
 

@@ -28,6 +28,8 @@ If I am the owner of a rental property, when I login, I am brought to a dashboar
 
 Donald Biggers, Lennon Simpson, Michael Coleman, and Angela Thompson
 
+# Screenshots
+
 # Links
 
 - GitHub Link: github.com/thomps0189

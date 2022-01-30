@@ -1,4 +1,17 @@
+
 <div class="banner d-flex align-items-center" id="banner">
+
+<nav>
+    {{#if loggedIn}}
+    <a href="/dashboard">dashboard</a>
+    <button id="logout" class="btn-no-style">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
+</nav>
+
+<div class="banner d-flex align-items-center">
+
     <div class="container">
         <div style="padding: 40px; " class="col-md-12">
             <h1 class="text-center text-secondary">Bootcamp Real Estate</h1>
@@ -15,7 +28,9 @@
         <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
         <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
         <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
-        <p class="card-text"><b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br></p>
+        <p class="card-text">
+            <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
+        </p>
         <p class="card-title"><b>City:</b>{{property.city}}</p>
         <p class="card-title"><b>State:</b>{{property.state}}</p>
         <p class="card-title"><b>County:</b>{{property.county}}</p>

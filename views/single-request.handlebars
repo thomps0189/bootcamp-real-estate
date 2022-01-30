@@ -1,0 +1,39 @@
+<article class="post">
+  <div class="title">
+    {{!-- <a href="{{request.request_url}}" target="_blank">{{request.title}}</a> --}}
+    {{!-- <span>({{post.request_message}})</span> --}}
+  </div>
+  <div class="meta">
+    {{!-- {{request.vote_count}}
+    point(s) by --}}
+    {{!-- {{request.user.username}}
+    on
+    {{request.created_at}} --}}
+    {{post.request_message}}<br /><br />
+    created at:&emsp;
+    {{post.created_at}}<br /><br />
+    last updated at:&emsp;
+    {{post.updated_at}}<br /><br />
+    {{!-- <a href="/request/{{request.id}}">{{request.comments.length}} comment(s)</a> --}}
+  </div>
+</article>
+
+{{#if loggedIn}}
+  <form class="comment-form">
+    <div>
+      <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit">add comment</button>
+      <button type="button" class="upvote-btn">upvote</button>
+    </div>
+  </form>
+{{/if}}
+
+{{!-- {{> comments request.comments}} --}}
+
+{{#if loggedIn}}
+  {{! <script src="/javascript/comment.js"></script>
+  <script src="/javascript/upvote.js"></script> }}
+{{/if}}

@@ -2,18 +2,18 @@ async function requestFormHandler(event) {
     event.preventDefault();
 
     const name = document.querySelector('#username-request').value.trim();
-    const property = document.querySelector('#property-request').value.trim();
+    const property_id = document.querySelector('#property-request').value.trim();
     const email = document.querySelector('#email-request').value.trim();
-    const message = document.querySelector('#message-request').value.trim();
+    const request_message = document.querySelector('#message-request').value.trim();
 
     if (name && message) {
-        const response = await fetch('/api/request-routes', {
+        const response = await fetch('/api/requests', {
             method: 'post',
             body: JSON.stringify({
                 name,
-                property,
+                property_id,
                 email,
-                message
+                request_message,
             }),
             headers: { 'Content-Type': 'application/json' }
         });

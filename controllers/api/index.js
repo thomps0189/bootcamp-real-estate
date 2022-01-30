@@ -21,3 +21,6 @@ router.use("/users", userRoutes);
 router.use("/workOrders", workOrderTypeRoutes);
 
 module.exports = router;
+
+// tenants
+// requests gets 500 internal server error

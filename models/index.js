@@ -49,6 +49,10 @@ Property.hasMany(Request, {
   foreignKey: "property_id",
 });
 
+Property.hasOne(PropertyTenant, {
+  foreignKey: "property_id",
+});
+
 RequestType.hasMany(Request, {
   foreignKey: "request_type_id",
   onDelete: "SET NULL",
@@ -68,6 +72,17 @@ User.belongsTo(RoleType, {
   foreignKey: "role_type_id",
   onDelete: "SET NULL",
 });
+//NEW AFTER THIS LINE
+// PropertyTenant.belongsTo(Property, {
+//   foreignKey: 'property_id'
+// });
+
+
+Request.belongsTo(Property, {
+  foreignKey: "property_id",
+});
+
+
 
 // RoleType.belongsTo(User, {
 //   foreignKey: "role_type_id",
@@ -98,12 +113,8 @@ User.belongsTo(RoleType, {
 // });
 
 // Property.hasMany(Request, {
-//   foreignKey: "id",
-// });
-
-// Request.belongsTo(Property, {
-//   foreignKey: "address",
-// });
+//    foreignKey: "id",
+//  });
 
 // ToDo.hasMany(Property, {
 //   foreignKey: "address",

@@ -17,12 +17,14 @@ const sess = {
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
-  }),
+  })
 };
 
 app.use(session(sess));
 
-const helpers = require('./utils/helpers');
+
+const helpers = require("./utils/helpers");
+
 
 const hbs = exphbs.create({ helpers });
 

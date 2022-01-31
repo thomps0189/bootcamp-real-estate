@@ -5,25 +5,30 @@
 </div>
 
 <div class="card" style="width: 18rem;">
-    {{#each property}}
-    <img src="..." class="card-img-top" alt="...">
+    {{#property}}
+    
     <div class="card-body">
-        <h1 class="card-title">{{property.name}}</h1>
-        <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
+        
+        
+        {{!-- <h1 class="card-title">{{property.name}}</h1> --}}
+        <p class="card-title"><b>Bedrooms:</b>{{this.bedrooms}}</p>
         <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
-        <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
-        <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
+        <p class="card-title"><b>Rent:</b>{{rent}}</p>
+        {{!-- <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
         <p class="card-text">
             <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
         </p>
         <p class="card-title"><b>City:</b>{{property.city}}</p>
         <p class="card-title"><b>State:</b>{{property.state}}</p>
-        <p class="card-title"><b>County:</b>{{property.county}}</p>
+        <p class="card-title"><b>County:</b>{{property.county}}</p> --}}
+        
     </div>
+    
     <div>
         <button type="submit" class="btn">view property</button>
     </div>
-    {{/each}}
+    {{/property}}
+    
 </div>
 
 <script src="/javascript/logout.js"></script>

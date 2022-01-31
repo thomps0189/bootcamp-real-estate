@@ -49,6 +49,7 @@ body, html {
 
 
 #dashboard {
+
     height: 450px;
     margin-top: 0px;
     margin-bottom: 20px;
@@ -59,6 +60,7 @@ body, html {
     background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 0%), url("https://video.cgtn.com/news/7955444e77677a6333566d54/video/48c93e98-5be9-422c-97d2-f4d8231e9d15/48c93e98-5be9-422c-97d2-f4d8231e9d15.jpg") no-repeat center;
     background-size: cover;
     align-items: center;
+
 }
 
 #main-request {

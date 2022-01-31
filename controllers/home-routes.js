@@ -23,11 +23,11 @@ router.get("/", (req, res) => {
       ],
     })
     .then((dbPropertyData) => {
-      const posts = dbPropertyData.map((post) => post.get({
+      const property = dbPropertyData.map((post) => post.get({
         plain: true
       }));
       res.render("homepage", {
-        posts,
+        property,
         loggedIn: req.session.loggedIn
       });
     })
@@ -130,10 +130,6 @@ router.post("/requests", (req, res) => {
       res.json(500).json(err);
     });
 });
-
-
-
-
 
 
 module.exports = router;

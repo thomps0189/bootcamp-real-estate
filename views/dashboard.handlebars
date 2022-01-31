@@ -1,3 +1,34 @@
+
+<div class="card" style="width: 18rem;">
+  <a href="/requests">
+    <p>Create Maintenance Request</p>
+  </a>
+</div>
+
+{{#if requests.length}}
+  <div class="card" style="width: 18rem;">
+    {{#each requests as |request|}}
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h1 class="card-title">{{request.request_message}}</h1>
+        {{!-- <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
+        <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
+        <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
+        <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
+        <p class="card-text">
+            <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
+        </p>
+        <p class="card-title"><b>City:</b>{{property.city}}</p>
+        <p class="card-title"><b>State:</b>{{property.state}}</p>
+        <p class="card-title"><b>County:</b>{{property.county}}</p> --}}
+      </div>
+      <div>
+        <button type="submit" class="btn">view property</button>
+      </div>
+    {{/each}}
+    {{!-- {{#each property}}
+    <img src="..." class="card-img-top" alt="...">
+
 <div class="card m-4" style="width: 18rem;">
     <a href="/requests">
         <p>Create Maintenance Request</p>
@@ -7,6 +38,7 @@
 <div class="container d-flex justify-content-center">
     {{#each requests}}
     <div class="card d-flex m-2">
+
     <div class="card-body">
         <!-- these values need to correspond to the values in the model -->
         <h1 class="card-title"><b>{{property_id}}</b></h1>
@@ -16,9 +48,15 @@
              <!--  Gonna wanna hook this button up to delete the request --> 
         <button type="submit" class="btn rounded">Mark As Complete</button>
     </div>
+
+    {{/each}} --}}
+  </div>
+{{/if}}
+
      </div> 
     {{/each}}
 </div>
+
 
 
 <script src="/javascript/logout.js"></script>

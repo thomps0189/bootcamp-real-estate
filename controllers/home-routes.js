@@ -65,6 +65,43 @@ router.get("/request/:id", (req, res) => {
     });
 });
 
+router.get("/requests", (req, res) => {
+    Request.findAll({
+      attributes: ["id", "request_message", "created_at", "updated_at"],
+      include: [{ all: true, nested: false }],
+    })
+      .then((dbPostData) => {
+        if (!dbPostData) {
+          res.status(404).json({ message: "No post found with this id" });
+          return;
+        }
+  
+        // serialize the data
+        const post = dbPostData.get({ plain: true });
+  
+        // pass data to template
+        res.render("single-request", { post, loggedIn: req.session.loggedIn });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+  router.post("/requests", (req, res) => {
+    Request.create({
+        property_id: req.body.property_id,
+        name: req.body.name,
+        email: req.body.email,
+        request_message: req.body.request_message
+      })
+        .then((dbRequestData) => res.json(dbRequestData))
+        .catch((err) => {
+          console.log(err);
+          res.json(500).json(err);
+        });
+    });
+
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

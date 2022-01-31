@@ -81,6 +81,50 @@ router.post("/", async (req, res) => {
     });
 });
 
+router.post("/login", (req, res) => {
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  console.log("server side login function has been called");
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  }).then((dbUserData) => {
+    console.log("finished the User.findOne function");
+    if (!dbUserData) {
+      console.log("user wasn't found");
+      res.status(400).json({ message: "No user with that email address!" });
+      return;
+    }
+
+    console.log("validating user password");
+    const validPassword = dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      console.log("bad password");
+      res.status(400).json({ message: "Incorrect password!" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: dbUserData, message: "You are now logged in!" });
+    });
+    console.log("new session saved");
+  });
+});
+
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 //Put Routes
 
 router.put("/:id", (req, res) => {

@@ -1,4 +1,4 @@
-{{!-- <div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <a href="/requests">
     <p>Create Maintenance Request</p>
   </a>
@@ -7,63 +7,16 @@
 {{#if requests.length}}
   <div class="card" style="width: 18rem;">
     {{#each requests as |request|}}
+      {{! <img src="..." class="card-img-top" alt="..." /> }}
       <div class="card-body">
         <h1 class="card-title">{{request.property.address_line1}}</h1>
         <p class="card-text">{{request.request_message}}</p>
-        {{!-- <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
-        <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
-        <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
-        <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
-        <p class="card-text">
-            <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
-        </p>
-        <p class="card-title"><b>City:</b>{{property.city}}</p>
-        <p class="card-title"><b>State:</b>{{property.state}}</p>
-        <p class="card-title"><b>County:</b>{{property.county}}</p> --}}
 
-      {{!-- </div>
-    <div>
-        <button type="submit" class="btn">view property</button>
-      </div>  {{!--  --}}
+      </div>
+
     {{/each}}
-    
+
   </div>
 {{/if}}
-
-     </div> 
-    {{/each}} --}}
-
-<div class="justify-center" id="dashboard">
-    <div class="card bg-dark d-flex mx-auto text-center border border-3 border-secondary" style="width: 18rem;" id="main-request">
-        <a class="text-secondary text-decoration-none" href="/requests">
-            <p>Create Maintenance Request</p>
-        </a>
-    </div>
-
-    <div class="card d-flex mx-auto" style="width: 18rem;">
-        {{#each property}}
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h1 class="card-title">{{property.name}}</h1>
-            <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
-            <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
-            <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
-            <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
-            <p class="card-text">
-                <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
-            </p>
-            <p class="card-title"><b>City:</b>{{property.city}}</p>
-            <p class="card-title"><b>State:</b>{{property.state}}</p>
-            <p class="card-title"><b>County:</b>{{property.county}}</p>
-        </div>
-        <div>
-            <button type="submit" class="btn">view property</button>
-        </div>
-        {{/each}}
-    </div>
-
-</div>
-
-
 
 <script src="/javascript/logout.js"></script>

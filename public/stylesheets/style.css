@@ -5,7 +5,7 @@
 #banner {
     height: 450px;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     overflow: hidden;
     width: 100%;
     z-index: -9999;
@@ -41,9 +41,11 @@
 
 body, html {
     height: 100%;
-    padding: 0;
-    margin: 0;
+    padding: auto;
+    margin: auto;
+    background-color: gray;
 }
+
 
 #dashboard {
     height: 450px;
@@ -63,3 +65,6 @@ body, html {
     border-radius: 15px;
 }
 
+footer {
+    padding: 10px 10px 0px 10px;
+}

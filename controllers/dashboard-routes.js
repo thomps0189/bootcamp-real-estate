@@ -16,13 +16,13 @@ router.get("/", (req, res) => {
       }],
     })
     .then((dbRequestData) => {
-      const requests = dbRequestData.map((requests) => requests.get({
+      const requests = dbRequestData.map((post) => post.get({
         plain: true
-      }))
+      }));
       res.render("dashboard", {
         requests,
         loggedIn: req.session.loggedIn
-      })
+      });
     })
     .catch((err) => {
       console.log(err);

@@ -11,26 +11,26 @@
 
 
 
-{{#if loggedIn}}
-<div class="card" style="width: 18rem;">
-    {{property}}
-    
+
+<div class="container d-flex justify-content-center">
+    {{#each property}}
+    <div class = "card d-flex m-2">
     <div class="card-body">
         {{!-- <h1 class="card-title">{{property.name}}</h1> --}}
-        <p class="card-title"><b>Bedrooms:</b>{{ property.bedrooms}}</p>
-        <p class="card-title"><b>Bathrooms:</b>{{this.bathrooms}}</p>
-        <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
-        <p class="card-title"><b>Square Feet:</b>{{this.sq_ft}}</p>
+        <p class="card-title"><b>Bedrooms:</b>{{bedrooms}}</p>
+        <p class="card-title"><b>Bathrooms:</b>{{bathrooms}}</p>
+        <p class="card-title"><b>Rent:</b>{{rent}}</p>
+        <p class="card-title"><b>Square Feet:</b>{{sq_ft}}</p>
         <p class="card-text">
-            <b>Address:</b><br>{{this.address_line1}}</br><br>{{this.address_line2}}</br><br>{{this.zip_code}}</br>
+            <b>Address:</b><br>{{address_line1}}</br><br>{{address_line2}}</br><br>{{zip_code}}</br>
         </p>
-        <p class="card-title"><b>City:</b>{{this.city}}</p>
-        <p class="card-title"><b>State:</b>{{this.state}}</p>
-        <p class="card-title"><b>County:</b>{{this.county}}</p>
+        <p class="card-title"><b>City:</b>{{city}}</p>
+        <p class="card-title"><b>State:</b>{{state}}</p>
+        <p class="card-title"><b>County:</b>{{county}}</p>
     </div>
     <div>
         <button type="submit" class="btn">view property</button>
     </div>
-    {{!-- {{/each}} --}}
+    </div>
+    {{/each}}
 </div>
-{{/if}}

@@ -6,7 +6,7 @@ async function requestFormHandler(event) {
     const email = document.querySelector('#email-request').value.trim();
     const request_message = document.querySelector('#message-request').value.trim();
 
-    if (name && message) {
+    if (name && request_message) {
         const response = await fetch('/api/requests', {
             method: 'post',
             body: JSON.stringify({
@@ -15,7 +15,9 @@ async function requestFormHandler(event) {
                 email,
                 request_message,
             }),
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
 
         if (response.ok) {

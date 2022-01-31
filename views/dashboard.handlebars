@@ -1,12 +1,3 @@
-<nav>
-    {{#if loggedIn}}
-    <a href="/dashboard">dashboard</a>
-    <button id="logout" class="btn-no-style">logout</button>
-    {{else}}
-    <a href="/login">login</a>
-    {{/if}}
-</nav>
-
 <div class="card" style="width: 18rem;">
     <a href="/requests">
         <p>Create Maintenance Request</p>
@@ -35,4 +26,4 @@
     {{/each}}
 </div>
 
-<script src="/public/javascript/logout.js"></script>
+<script src="/javascript/logout.js"></script>

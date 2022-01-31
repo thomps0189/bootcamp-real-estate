@@ -8,24 +8,29 @@
     </div>
 </div>
 
+
+
+
+{{#if loggedIn}}
 <div class="card" style="width: 18rem;">
-    {{#each property}}
-    <img src="..." class="card-img-top" alt="...">
+    {{property}}
+    
     <div class="card-body">
-        <h1 class="card-title">{{property.name}}</h1>
-        <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
-        <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
+        {{!-- <h1 class="card-title">{{property.name}}</h1> --}}
+        <p class="card-title"><b>Bedrooms:</b>{{ property.bedrooms}}</p>
+        <p class="card-title"><b>Bathrooms:</b>{{this.bathrooms}}</p>
         <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
-        <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
+        <p class="card-title"><b>Square Feet:</b>{{this.sq_ft}}</p>
         <p class="card-text">
-            <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
+            <b>Address:</b><br>{{this.address_line1}}</br><br>{{this.address_line2}}</br><br>{{this.zip_code}}</br>
         </p>
-        <p class="card-title"><b>City:</b>{{property.city}}</p>
-        <p class="card-title"><b>State:</b>{{property.state}}</p>
-        <p class="card-title"><b>County:</b>{{property.county}}</p>
+        <p class="card-title"><b>City:</b>{{this.city}}</p>
+        <p class="card-title"><b>State:</b>{{this.state}}</p>
+        <p class="card-title"><b>County:</b>{{this.county}}</p>
     </div>
     <div>
         <button type="submit" class="btn">view property</button>
     </div>
-    {{/each}}
+    {{!-- {{/each}} --}}
 </div>
+{{/if}}

@@ -13,6 +13,7 @@
 <div class="container d-flex  m-auto">
     {{#each property}}
     <div class = "card d-flex m-2 text-secondary bg-dark">
+
     <div class="card-body">
         {{!-- <h1 class="card-title">{{property.name}}</h1> --}}
         <p class="card-title"><b>Bedrooms:</b>{{bedrooms}}</p>
@@ -25,9 +26,12 @@
         <p class="card-title"><b>City:</b>{{city}}</p>
         <p class="card-title"><b>State:</b>{{state}}</p>
         <p class="card-title"><b>County:</b>{{county}}</p>
+
     </div>
     <div class="mx-auto" style="margin-bottom: 3px;">
         <button type="submit" class="btn btn-secondary text-dark">view property</button>
+
+    </div>
     </div>
     </div>
     {{/each}}

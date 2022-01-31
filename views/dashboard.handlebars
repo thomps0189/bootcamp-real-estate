@@ -1,3 +1,4 @@
+
 <div class="justify-center" id="dashboard">
     <div class="card bg-dark d-flex mx-auto text-center border border-3 border-secondary" style="width: 18rem;" id="main-request">
         <a class="text-secondary text-decoration-none" href="/requests">
@@ -5,28 +6,62 @@
         </a>
     </div>
 
-    <div class="card d-flex mx-auto" style="width: 18rem;">
+
+    {{#if requests.length}}
+    <div class="card bg-dark d-flex mx-auto text-center border border-3 border-secondary text-secondary " style="width: 18rem; margin-top: 10px;">
         {{#each requests as |request|}}
         <div class="card-body">
             <h1 class="card-title">{{request.property.address_line1}}</h1>
-            <p class="card-title"><b>Bedrooms:</b>{{request.property.bedrooms}}</p>
-            <p class="card-title"><b>Bathrooms:</b>{{request.property.bathrooms}}</p>
-            <p class="card-title"><b>Rent:</b>{{request.property.rent}}</p>
-            <p class="card-title"><b>Square Feet:</b>{{request.property.sq_ft}}</p>
+            <p class="card-text">{{request.request_message}}</p>
+            {{!-- <p class="card-title"><b>Bedrooms:</b>{{property.bedrooms}}</p>
+            <p class="card-title"><b>Bathrooms:</b>{{property.bathrooms}}</p>
+            <p class="card-title"><b>Rent:</b>{{property.rent}}</p>
+            <p class="card-title"><b>Square Feet:</b>{{property.sq_ft}}</p>
             <p class="card-text">
-                <b>Address:</b><br>{{request.property.address_line1}}</br><br>{{request.property.address_line2}}</br><br>{{request.property.zip_code}}</br>
+                <b>Address:</b><br>{{property.address_line1}}</br><br>{{property.address_line2}}</br><br>{{property.zip_code}}</br>
             </p>
-            <p class="card-title"><b>City:</b>{{request.property.city}}</p>
-            <p class="card-title"><b>State:</b>{{request.property.state}}</p>
-            <p class="card-title"><b>County:</b>{{request.property.county}}</p>
-            <p class="card-text"><b>Message:</b>{{request.request_message}}</p>
+            <p class="card-title"><b>City:</b>{{property.city}}</p>
+            <p class="card-title"><b>State:</b>{{property.state}}</p>
+            <p class="card-title"><b>County:</b>{{property.county}}</p> --}}
         </div>
         <div>
-            <button type="submit" class="btn">View Property</button>
-        </div>
+            <button type="submit" class="btn btn-secondary text-dark">view property</button>
+        </div>  {{!--  --}}
         {{/each}}
+        {{!-- {{#each property}}
+        <img src="..." class="card-img-top" alt="...">
+
+    <div class="card m-4" style="width: 18rem;">
+        <a href="/requests">
+            <p>Create Maintenance Request</p>
+        </a>
     </div>
 
+    <div class="container d-flex justify-content-center">
+        {{#each requests}}
+        <div class="card d-flex m-2">
+
+        <div class="card-body">
+            <!-- these values need to correspond to the values in the model -->
+            <h1 class="card-title"><b>{{property_id}}</b></h1>
+            <p class="card-title"><b>Message:</b>{{request_message}}</p>
+        </div>
+                    <div>
+                <!--  Gonna wanna hook this button up to delete the request --> 
+            <button type="submit" class="btn rounded">Mark As Complete</button>
+        </div>
+
+        {{/each}} --}}
+    </div>
+    {{/if}}
+
+        </div> 
+        {{!-- {{/each}} --}}
+    </div>
 </div>
+
+
+
+
 
 <script src="/javascript/logout.js"></script>

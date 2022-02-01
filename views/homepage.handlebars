@@ -1,0 +1,33 @@
+<div class="banner d-flex align-items-center" id="banner">
+    <div class="container">
+        <div style="padding: 40px; " class="col-md-12">
+            <h1 class="text-center text-secondary">Bootcamp Real Estate</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container d-flex m-auto">
+    {{#each property}}
+    <div class = "card d-flex m-2 text-secondary bg-dark">
+    <div class="card-body">
+        {{!-- <h1 class="card-title">{{property.name}}</h1> --}}
+        <p class="card-title"><b>Bedrooms:</b>{{bedrooms}}</p>
+        <p class="card-title"><b>Bathrooms:</b>{{bathrooms}}</p>
+        <p class="card-title"><b>Rent:</b>{{rent}}</p>
+        <p class="card-title"><b>Square Feet:</b>{{sq_ft}}</p>
+        <p class="card-text">
+            <b>Address:</b><br>{{address_line1}}</br><br>{{address_line2}}</br><br>{{zip_code}}</br>
+        </p>
+        <p class="card-title"><b>City:</b>{{city}}</p>
+        <p class="card-title"><b>State:</b>{{state}}</p>
+        <p class="card-title"><b>County:</b>{{county}}</p>
+    </div>
+    <div>
+        <button type="submit" class="btn">view property</button>
+    </div>
+    </div>
+    {{/each}}
+</div>
+
+<script src="/javascript/logout.js"></script>

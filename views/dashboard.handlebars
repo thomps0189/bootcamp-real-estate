@@ -1,0 +1,29 @@
+
+<div class="justify-center" id="dashboard">
+    <div class="card bg-dark d-flex mx-auto text-center border border-3 border-secondary" style="width: 18rem;" id="main-request">
+        <a class="text-secondary text-decoration-none" href="/requests">
+            <p>Create Maintenance Request</p>
+        </a>
+    </div>
+
+
+    {{#if requests.length}}
+    <div class="card bg-dark d-flex mx-auto text-center border border-3 border-secondary text-secondary " style="width: 18rem; margin-top: 10px;">
+        {{#each requests as |request|}}
+        <div class="card-body">
+            <h1 class="card-title">{{request.property.address_line1}}</h1>
+            <p class="card-text">{{request.request_message}}</p>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+        </div> 
+    </div>
+</div>
+
+
+
+
+
+<script src="/javascript/logout.js"></script>

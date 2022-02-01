@@ -1,0 +1,36 @@
+<div class="container-fluid justify-center d-flex justify-content-evenly text-secondary" id="request">
+    <form id="request-form" class="flex flex-col d-inline-block bg-dark border border-3 border-secondary ">
+    <div class="mb-3">
+        <label for="name-request" class="form-label">Name:</label>
+        <input type="text" id="username-request" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label for="email-request" class="form-label">Email:</label>
+        <input type="text" id="email-request" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label for="property-request" class="form-label">Property ID:</label>
+        <input type="text" id="property-request" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Request Type:</label><br />
+        <div class="mb-3">
+        <label for="maint" class="form-check-label">Maintenance</label>
+        <input type="radio" id="maint" name="type-request" value="1" class="form-check-input" /><br />
+        </div>
+        <div class="mb-3">
+        <label for="service-req" class="form-check-label">Service Request</label>
+        <input type="radio" id="service-req" name="type-request" value="2" class="form-check-input" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="text-request" class="form-label">Message:</label>
+        <input type="text" id="message-request" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-secondary text-dark">Submit Request </button>
+    </div>
+    </form>
+</div>
+
+<script src="/javascript/requests.js"></script>

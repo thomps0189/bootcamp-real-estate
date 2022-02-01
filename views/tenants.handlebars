@@ -1,0 +1,12 @@
+
+<div class="card" style="width: 18rem;">
+    {{#each tenant}}
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h1 class="card-title">{{tenant.first_name}} {{tenant.last_name}}</h1>
+        <p class="card-text"><b>Phone:</b>{{tenant.phone}}</p>
+        <p class="card-text"><b>Email:</b>{{tenant.email}}</p>
+    </div>
+    <button type="submit" class="btn">Request</button>
+    {{/each}}
+</div>

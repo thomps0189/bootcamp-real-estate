@@ -14,7 +14,7 @@
 
 # Description
 
-This is a website to be used by both a real estate manager/owner and the tenets who are renting. Tenets and Landlords will have their separate landing page with relavant information.
+This is a website to be used by both a real estate manager/owner and the tenants who are renting. Tenants and landlords will have their separate landing page with relavant information.
 
 # Installation
 
@@ -34,5 +34,5 @@ Donald Biggers, Lennon Simpson, Michael Coleman, and Angela Thompson
 
 # Links
 
-- GitHub Link: github.com/thomps0189
-- Heroku Deployment:
+- GitHub Link: https://github.com/thomps0189/bootcamp-real-estate
+- Heroku Deployment: https://calm-depths-28335.herokuapp.com/

@@ -30,6 +30,8 @@ Donald Biggers, Lennon Simpson, Michael Coleman, and Angela Thompson
 
 # Screenshots
 
+![image](https://user-images.githubusercontent.com/90336738/151900551-b499cbb3-fb42-4cec-8944-14ec91796c4a.png)
+
 # Links
 
 - GitHub Link: github.com/thomps0189
